@@ -28,7 +28,7 @@ export const Navbar = () => {
   const [navbar, setNavBar] = useState(false);
 
   return (
-    <header className="w-full mx-auto px-4 dark:bg-[#001C30] fixed top-0 z-50 sm:px-20 dark:border-b dark:border-stone-700 bg-white shadow">
+    <header className="w-full mx-auto px-4 dark:bg-[#001C30] fixed top-0 z-50 sm:px-20 dark:border-b dark:border-stone-700 bg-slate-100 shadow">
       <div className="justify-between md:items-center md:flex">
         <div>
           <div className="flex items-center py-4 justify-between">

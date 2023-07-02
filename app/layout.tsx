@@ -14,7 +14,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <ThemeProvider enableSystem={true} attribute="class">
-      <body className="dark:bg-[#001C30]">
+      <body className="dark:bg-[#001C30] bg-slate-50">
           <Navbar/>
           {children}
           <Footer/>
