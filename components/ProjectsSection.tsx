@@ -6,21 +6,21 @@ const projects = [
   {
     name: "Chat Application",
     description: "A real-time chat application with suggestion tool",
-    image: "/placeholder.png",
-    github: "github-link",
+    image: "/TextGPT.png",
+    github: "https://github.com/FrankyKyaw/TextGPT",
   },
   {
     name: "Habit Management Tool",
     description: "A web app to track and manage habits",
-    image: "/placeholder.png",
-    github: "github-link",
+    image: "/Habitify.png",
+    github: "https://github.com/FrankyKyaw/habitify-web-app",
   },
   {
     name: "Stock Prices Tool",
     description:
       "A tool to calculate stock price changes and display relevant news",
-    image: "/placeholder.png",
-    github: "github-link",
+    image: "/Rust_Rest_API.png",
+    github: "https://github.com/FrankyKyaw/Rust-Rest-API",
   },
 ];
 
@@ -47,7 +47,7 @@ export const ProjectsSection = () => {
                   <p className="text-xl">{project.description}</p>
                   <div className="flex space-x-4 mt-4">
                     <Link href={project.github} target="_blank">
-                      <BsGithub size={30} className="hover:-translate-y-0.5 transition-transform cursor-pointer" />
+                      <BsGithub size={25} className="hover:-translate-y-0.5 transition-transform cursor-pointer" />
                     </Link>
                   </div>
                 </div>
