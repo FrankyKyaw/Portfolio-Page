@@ -2,6 +2,7 @@
 import { Navbar } from "@/components/Navbar";
 import "./globals.css";
 import { ThemeProvider } from "next-themes";  
+import { Footer } from "@/components/Footer";
 
 
 
@@ -13,11 +14,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <ThemeProvider enableSystem={true} attribute="class">
-      <body className="dark:bg-stone-900">
-        
+      <body className="dark:bg-[#001C30]">
           <Navbar/>
           {children}
-        
+          <Footer/>
       </body>
       </ThemeProvider>
     </html>

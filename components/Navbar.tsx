@@ -4,6 +4,7 @@ import { RiMoonFill, RiSunLine } from "react-icons/ri";
 import { IoMdMenu, IoMdClose } from "react-icons/io";
 import { useTheme } from "next-themes";
 import {Link as ScrollLink } from "react-scroll/modules";
+import Link from "next/link";
 
 interface NavItem {
   label: string;
@@ -11,10 +12,6 @@ interface NavItem {
 }
 
 const NAV_ITEMS: Array<NavItem> = [
-  {
-    label: "Home",
-    page: "home",
-  },
   {
     label: "About",
     page: "about",
@@ -31,7 +28,7 @@ export const Navbar = () => {
   const [navbar, setNavBar] = useState(false);
 
   return (
-    <header className="w-full mx-auto px-4 dark:bg-stone-900 fixed top-0 z-50 sm:px-20 dark:border-b dark:border-stone-600 bg-white shadow">
+    <header className="w-full mx-auto px-4 dark:bg-[#001C30] fixed top-0 z-50 sm:px-20 dark:border-b dark:border-stone-700 bg-white shadow">
       <div className="justify-between md:items-center md:flex">
         <div>
           <div className="flex items-center py-4 justify-between">
@@ -52,13 +49,14 @@ export const Navbar = () => {
             }`}
           >
             <div className="items-center justify-center space-y-8 md:flex md:space-x-6 md:space-y-0">
+              <Link href="/">Home</Link>
               {NAV_ITEMS.map((item, idx) => {
                 return (
                   <ScrollLink
                     key={idx}
                     to={item.page}
                     className={
-                      "block lg:inline-block text-neutral-900  hover:text-neutral-500 dark:text-neutral-100"
+                      "block lg:inline-block text-neutral-900  hover:text-neutral-500 dark:text-neutral-100 cursor-pointer"
                     }
                     activeClass="active"
                     spy={true}
@@ -71,6 +69,7 @@ export const Navbar = () => {
                   </ScrollLink>
                 )
               })}
+              <Link href="/resume">Resume</Link>
               {currentTheme === "dark" ? (
                 <button
                   onClick={() => setTheme("light")}
