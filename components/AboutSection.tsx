@@ -23,15 +23,15 @@ export const AboutSection = () => {
               Who I am
             </h1>
             <p>
-              Hey there! I'm a senior college student pursuing a Computer
+              Hey there! I&apos;m a senior college student pursuing a Computer
               Science degree at Bennington College.
             </p>
             <br />
             <p>
-              I'm super excited about building web applications and exploring
+              I&apos;m super excited about building web applications and exploring
               the world of machine learning. What really drives me is the
               opportunity to create responsible software that truly makes a
-              positive impact on people's lives. Let's connect and chat about
+              positive impact on people&apos;s lives. Let&apos;s connect and chat about
               all things tech!
             </p>
             <br />
