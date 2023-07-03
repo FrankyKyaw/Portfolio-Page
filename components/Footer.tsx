@@ -7,7 +7,7 @@ import {
 
 export const Footer = () => {
   return (
-    <footer className="mx-auto mt-10 max-w-3xl px-4 sm:px-6 md:max-w-5xl">
+    <footer className="mx-auto mt-16 max-w-3xl px-4 sm:px-6 md:max-w-5xl">
       <hr className="w-full h-0.5 mx-automt-8 bg-neutral-200"></hr>
       <div className="mx-auto p-4 flex flex-col text-center md:flex-row md:justify-between">
         <div className="text-neutral-500 dark:text-neutral-100">@2023 Franky Kyaw</div>

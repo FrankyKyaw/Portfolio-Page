@@ -8,9 +8,9 @@ export const HomeSection = () => {
         <div className="md:w-2/3 md:mt-2">
           <h1 className="font-bold text-5xl mt-6">Hi, I'm Myo Thet Kyaw!</h1>
           <h1 className="font-bold text-5xl mt-6 mb-6">
-            I am a{" "}
+            I am an{" "}
             <span className="font-semibold text-teal-600">
-              Placeholder
+              Aspiring Software Engineer.
             </span>
           </h1>
           {/* <ScrollLink

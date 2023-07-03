@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
-import { BsGithub, BsArrowUpRightSquare } from "react-icons/bs";
+import { BsGithub } from "react-icons/bs";
+
 
 const projects = [
   {
@@ -11,14 +12,14 @@ const projects = [
   },
   {
     name: "Habit Management Tool",
-    description: "A web app to track and manage habits",
+    description: "A web app created with React, Firebase, and Tailwind that allows users to login and keep track of their habits.",
     image: "/Habitify.png",
     github: "https://github.com/FrankyKyaw/habitify-web-app",
   },
   {
-    name: "Stock Prices Tool",
+    name: "Rust Rest API",
     description:
-      "A tool to calculate stock price changes and display relevant news",
+      "This project is a RESTful API developed using the Rocket framework in Rust. The API provides full CRUD (Create, Read, Update, Delete) as well as query operations on the data.",
     image: "/Rust_Rest_API.png",
     github: "https://github.com/FrankyKyaw/Rust-Rest-API",
   },
