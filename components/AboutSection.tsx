@@ -6,6 +6,7 @@ const skills = [
   { skill: "SQL" },
   { skill: "React.js" },
   { skill: "Node.js"},
+  { skill: "Next.js"},
   { skill: "Docker"},
   { skill: "Socket.io" },
   { skill: "Git" },
@@ -23,8 +24,8 @@ export const AboutSection = () => {
               Who I am
             </h1>
             <p>
-              Hey there! I&apos;m a senior college student pursuing a Computer
-              Science degree at Bennington College.
+              Hey there! I&apos;m a recent graduate who majored in Computer
+              Science at Bennington College.
             </p>
             <br />
             <p>
