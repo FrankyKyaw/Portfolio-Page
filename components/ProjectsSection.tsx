@@ -5,8 +5,14 @@ import { BsGithub } from "react-icons/bs";
 
 const projects = [
   {
+    name: "Deep Melody LSTM",
+    description: "A deep learning model that generates choral music using LSTM neural networks.",
+    image: "/DeepMelodyLSTM.png",
+    github: "https://github.com/FrankyKyaw/DeepMelodyLSTM"
+  },
+  {
     name: "Chat Application",
-    description: "A real-time chat application with suggestion tool",
+    description: "A real-time chat application created with React, Node.js, and Socket.io and integrated with LLM text suggestion.",
     image: "/TextGPT.png",
     github: "https://github.com/FrankyKyaw/TextGPT",
   },
