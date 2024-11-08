@@ -49,7 +49,9 @@ export const Navbar = () => {
             }`}
           >
             <div className="items-center justify-center space-y-8 md:flex md:space-x-6 md:space-y-0">
-              <Link href="/">Home</Link>
+              <Link className={
+                      "block lg:inline-block text-neutral-900  hover:text-neutral-500 dark:text-neutral-100 cursor-pointer"
+                    } href="/">Home</Link>
               {NAV_ITEMS.map((item, idx) => {
                 return (
                   <ScrollLink
@@ -69,7 +71,12 @@ export const Navbar = () => {
                   </ScrollLink>
                 )
               })}
-              <Link href="/resume">Resume</Link>
+              <Link href="https://medium.com/@franky27october" className={
+                      "block lg:inline-block text-neutral-900  hover:text-neutral-500 dark:text-neutral-100 cursor-pointer"
+                    } target="__blank">Blog</Link>
+              <Link href="/resume" className={
+                      "block lg:inline-block text-neutral-900  hover:text-neutral-500 dark:text-neutral-100 cursor-pointer"
+                    }>Resume</Link>
               {currentTheme === "dark" ? (
                 <button
                   onClick={() => setTheme("light")}
