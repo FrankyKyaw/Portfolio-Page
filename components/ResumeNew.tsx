@@ -5,11 +5,11 @@ import React from "react";
 
 export const ResumeNew: React.FC = () => (
   <iframe
-      src="/MyoThet_Kyaw_resume.pdf"
+      src="/MyoThetkyaw_Resume.pdf"
       style={{ width: '80%', height: '800px' }}
 
   >
-      Your browser does not support PDFs. Please download the PDF to view it: <a href="/MyoThet_Kyaw_resume.pdf">Download PDF</a>
+      Your browser does not support PDFs. Please download the PDF to view it: <a href="/MyoThetkyaw_Resume.pdf">Download PDF</a>
   </iframe>
 );
 

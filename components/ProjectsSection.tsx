@@ -1,17 +1,39 @@
 import Image from "next/image";
 import Link from "next/link";
 import { BsGithub } from "react-icons/bs";
-
+import { FaExternalLinkAlt } from "react-icons/fa";
 
 const projects = [
   {
+    name: "Personal Finance Tracker",
+    description: "A personal finance tracker web application that allows users to link their bank accounts and track their income, expenses, and savings with dynamic charts.",
+    image: "/PersonalFinanceTracker.png",
+    github: "https://github.com/FrankyKyaw/personal-finance-dashboard"
+  },
+  {
+    name: "CodeQuest",
+    description: "CodeQuest is an interactive learning platform designed to help users master coding through hands-on lessons, coding challenges, and AI-powered feedback.",
+    image: "/CodeQuest.png",
+    github: "https://github.com/FrankyKyaw/codequest-app",
+    link: "https://codequest-8gcdug6w5-frankykyaws-projects.vercel.app/?vercelToolbarCode=cdCR1OXBTHsTjAd"
+  },
+  {
     name: "Deep Melody LSTM",
-    description: "A deep learning model that generates choral music using LSTM neural networks.",
+    description: `Deep Melody LSTM is a deep learning model designed to generate choral music compositions using Long Short-Term Memory (LSTM) neural networks 
+    and TensorFlow. This project aims to create harmoniously rich and melodically intricate musical pieces that 
+    emulate the style and complexity of choral music.`,
     image: "/DeepMelodyLSTM.png",
     github: "https://github.com/FrankyKyaw/DeepMelodyLSTM"
   },
   {
-    name: "Chat Application",
+    name: "BeFit",
+    description: "BeFit is a fitness tracking web application that allows users to create their own personalized workout routines and track their fitness journey.",
+    image: "/BeFit.png",
+    github: "https://github.com/FrankyKyaw/Workout-dashboard",
+    link: "https://workout-dashboard-jypbangg8-frankykyaw.vercel.app/"
+  },
+  {
+    name: "LLM powered Chat Application",
     description: "A real-time chat application created with React, Node.js, and Socket.io and integrated with LLM text suggestion.",
     image: "/TextGPT.png",
     github: "https://github.com/FrankyKyaw/TextGPT",
@@ -56,6 +78,11 @@ export const ProjectsSection = () => {
                     <Link href={project.github} target="_blank">
                       <BsGithub size={25} className="hover:-translate-y-0.5 transition-transform cursor-pointer" />
                     </Link>
+                    {project.link && (
+                      <Link href={project.link} target="_blank">
+                        <FaExternalLinkAlt size={25} className="hover:-translate-y-0.5 transition-transform cursor-pointer" />
+                      </Link>
+                    )}
                   </div>
                 </div>
               </div>
