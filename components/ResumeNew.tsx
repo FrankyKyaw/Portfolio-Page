@@ -5,7 +5,7 @@ import React from "react";
 
 export const ResumeNew: React.FC = () => (
   <iframe
-      src="/MyoThetkyaw_Resume.pdf"
+      src="/MyoThetKyaw_Resume.pdf"
       style={{ width: '80%', height: '800px' }}
 
   >
