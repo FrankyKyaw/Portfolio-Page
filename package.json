@@ -2,6 +2,9 @@
   "name": "portfolio-page",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": "22.x"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -9,13 +12,13 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@types/node": "20.3.3",
+    "@types/node": "^22.18.0",
     "@types/react": "18.2.14",
     "@types/react-dom": "18.2.6",
     "autoprefixer": "10.4.14",
     "eslint": "8.44.0",
-    "eslint-config-next": "13.4.7",
-    "next": "13.4.7",
+    "eslint-config-next": "^14.2.32",
+    "next": "^14.2.32",
     "next-themes": "^0.2.1",
     "postcss": "8.4.24",
     "react": "18.2.0",

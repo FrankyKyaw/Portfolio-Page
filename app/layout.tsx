@@ -13,13 +13,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <ThemeProvider enableSystem={true} attribute="class">
       <body className="dark:bg-[#001C30] bg-slate-50">
+        <ThemeProvider enableSystem={true} attribute="class">
           <Navbar/>
           {children}
           <Footer/>
+        </ThemeProvider>
       </body>
-      </ThemeProvider>
     </html>
   );
 }
