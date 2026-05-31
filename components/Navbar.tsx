@@ -3,7 +3,7 @@ import { useState } from "react";
 import { RiMoonFill, RiSunLine } from "react-icons/ri";
 import { IoMdMenu, IoMdClose } from "react-icons/io";
 import { useTheme } from "next-themes";
-import {Link as ScrollLink } from "react-scroll/modules";
+import { Link as ScrollLink } from "react-scroll/modules";
 import Link from "next/link";
 
 interface NavItem {
@@ -12,14 +12,10 @@ interface NavItem {
 }
 
 const NAV_ITEMS: Array<NavItem> = [
-  {
-    label: "About",
-    page: "about",
-  },
-  {
-    label: "Projects",
-    page: "projects",
-  },
+  { label: "About", page: "about" },
+  { label: "Experience", page: "experience" },
+  { label: "Projects", page: "projects" },
+  { label: "Contact", page: "contact" },
 ];
 
 export const Navbar = () => {
@@ -49,34 +45,33 @@ export const Navbar = () => {
             }`}
           >
             <div className="items-center justify-center space-y-8 md:flex md:space-x-6 md:space-y-0">
-              <Link className={
-                      "block lg:inline-block text-neutral-900  hover:text-neutral-500 dark:text-neutral-100 cursor-pointer"
-                    } href="/">Home</Link>
-              {NAV_ITEMS.map((item, idx) => {
-                return (
-                  <ScrollLink
-                    key={idx}
-                    to={item.page}
-                    className={
-                      "block lg:inline-block text-neutral-900  hover:text-neutral-500 dark:text-neutral-100 cursor-pointer"
-                    }
-                    activeClass="active"
-                    spy={true}
-                    smooth={true}
-                    offset={-100}
-                    duration={500}
-                    onClick={() => setNavBar(!navbar)}
-                  >
-                    {item.label}
-                  </ScrollLink>
-                )
-              })}
-              <Link href="https://medium.com/@franky27october" className={
-                      "block lg:inline-block text-neutral-900  hover:text-neutral-500 dark:text-neutral-100 cursor-pointer"
-                    } target="__blank">Blog</Link>
-              <Link href="/resume" className={
-                      "block lg:inline-block text-neutral-900  hover:text-neutral-500 dark:text-neutral-100 cursor-pointer"
-                    }>Resume</Link>
+              <Link
+                className="block lg:inline-block text-neutral-900 hover:text-neutral-500 dark:text-neutral-100 cursor-pointer"
+                href="/"
+              >
+                Home
+              </Link>
+              {NAV_ITEMS.map((item, idx) => (
+                <ScrollLink
+                  key={idx}
+                  to={item.page}
+                  className="block lg:inline-block text-neutral-900 hover:text-neutral-500 dark:text-neutral-100 cursor-pointer"
+                  activeClass="active"
+                  spy={true}
+                  smooth={true}
+                  offset={-100}
+                  duration={500}
+                  onClick={() => setNavBar(false)}
+                >
+                  {item.label}
+                </ScrollLink>
+              ))}
+              <Link
+                href="/resume"
+                className="block lg:inline-block text-neutral-900 hover:text-neutral-500 dark:text-neutral-100 cursor-pointer"
+              >
+                Resume
+              </Link>
               {currentTheme === "dark" ? (
                 <button
                   onClick={() => setTheme("light")}
