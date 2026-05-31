@@ -17,7 +17,7 @@ export const AboutSection = () => {
             Entra ID, networking and endpoint management.
           </p>
           <p className="about-p">
-           I love building software and automating workflows. Currently, I'm chasing my AWS Cloud
+           I love building software and automating workflows. Currently, I&apos;m chasing my AWS Cloud
             Practitioner cert.
           </p>
           {/* <p className="about-p about-aside">
