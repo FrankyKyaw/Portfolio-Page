@@ -118,14 +118,15 @@ export const HomeSection = () => {
           <div className="reveal" data-d="0">
             <span className="eyebrow">
               <span className="eyebrow-dot" />
-              {PROFILE.location} · available for work
+              {PROFILE.location} 
+              {/* · available for work */}
             </span>
           </div>
           <h1 className="hero-name reveal" data-d="1">{PROFILE.name}</h1>
           <h2 className="hero-role reveal" data-d="2">
-            <span className="hl">IT &amp; Cloud Engineer</span>
+            <span className="hl">IT Engineer</span>
             <br />
-            <span className="hero-role-sub">who ships software.</span>
+            {/* <span className="hero-role-sub">who ships software.</span> */}
           </h2>
           <p className="hero-blurb reveal" data-d="3">{PROFILE.blurb}</p>
           <div className="hero-cta reveal" data-d="4">

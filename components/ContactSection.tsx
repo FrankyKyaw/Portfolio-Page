@@ -16,12 +16,12 @@ export const ContactSection = () => {
         <div className="contact-inner reveal">
           <span className="sec-kicker on-ink">/ say hello</span>
           <h2 className="contact-big">
-            Let&apos;s build<br />something <span className="hl">solid.</span>
+            Let&apos;s <span className="hl">connect.</span>
           </h2>
-          <p className="contact-lead">
-            Open to roles in IT automation, cloud operations and full-stack development — and always
-            up for a good infra problem.
-          </p>
+          {/* <p className="contact-lead">
+            Open to IT automation, cloud operations, and full-stack development roles. Based in
+            Boston, available now.
+          </p> */}
           <a className="btn btn-primary btn-lg" href={`mailto:${PROFILE.email}`}>
             Email me <span className="btn-arrow">→</span>
           </a>
@@ -35,7 +35,6 @@ export const ContactSection = () => {
 
       <footer className="footer">
         <span>© 2026 {PROFILE.name}</span>
-        <span className="footer-mid">Built in Boston · Bricolage Grotesque + JetBrains Mono</span>
         <a href="#home">Back to top ↑</a>
       </footer>
     </section>

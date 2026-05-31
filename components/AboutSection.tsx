@@ -17,21 +17,18 @@ export const AboutSection = () => {
             Entra ID, networking and endpoint management.
           </p>
           <p className="about-p">
-            What sets me apart is the dev background underneath the IT work — I&apos;ve shipped full-stack
-            web &amp; mobile apps, worked with cloud infrastructure, and automated data workflows. I&apos;m
-            growing into <strong>IT automation and cloud operations</strong> and chasing my AWS Cloud
+           I love building software and automating workflows. Currently, I'm chasing my AWS Cloud
             Practitioner cert.
           </p>
-          <p className="about-p about-aside">
-            Off the clock, I&apos;m at the piano — studying it and writing my own compositions. (One of my
-            ML projects literally generates choral music. The overlap is not a coincidence.)
-          </p>
+          {/* <p className="about-p about-aside">
+            Aside from work, I love playing the piano and reading books.
+          </p> */}
         </div>
 
         <div className="about-right reveal" data-d="1">
-          <div className="about-photo">
+          {/* <div className="about-photo">
             <span className="about-photo-tag">{'// you, here'}</span>
-          </div>
+          </div> */}
           <div className="skills">
             {Object.entries(SKILLS).map(([group, list]) => (
               <div className="skill-group" key={group}>

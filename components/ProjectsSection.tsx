@@ -12,7 +12,7 @@ function ProjectCard({ p, onOpen }: { p: Project; onOpen: (p: Project) => void }
       <div className="pcard-media">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img src={p.image} alt={p.name} loading="lazy" />
-        {p.featured && <span className="pcard-flag">Featured · Live on App Store</span>}
+        {/* {p.featured && <span className="pcard-flag">Featured · Live on App Store</span>} */}
         <div className="pcard-hover">
           <span className="pcard-open">View details →</span>
         </div>

@@ -4,7 +4,7 @@ export const PROFILE = {
   tag: "who ships software",
   location: "Boston, MA",
   blurb:
-    "Help Desk Engineer at a fast-paced Boston MSP by day — full-stack & cloud builder the rest of the time. I live in the gap between IT operations and software, and I automate everything in between.",
+    "Help Desk Engineer at a fast-paced Boston MSP with a passion for full-stack and cloud development.",
   email: "myothetkyaw10.2000@gmail.com",
   github: "https://github.com/FrankyKyaw",
   linkedin: "https://www.linkedin.com/in/frankykyaw/",
@@ -13,20 +13,20 @@ export const PROFILE = {
 
 export const STATS = [
   { value: "2+",  label: "yrs in IT & infra" },
-  { value: "1",   label: "app live on the App Store" },
-  { value: "10+", label: "projects shipped" },
+  // { value: "1",   label: "app live on the App Store" },
+  // { value: "10+", label: "projects shipped" },
   { value: "AWS", label: "CP — in progress" },
 ];
 
 export const TERMINAL: { kind: "cmd" | "out" | "ok"; text: string }[] = [
   { kind: "cmd", text: "whoami" },
   { kind: "out", text: "franky_kyaw — IT/Cloud engineer + developer" },
-  { kind: "cmd", text: "cat ./focus.txt" },
-  { kind: "out", text: "Bridging IT operations and software at a Boston MSP." },
+  // { kind: "cmd", text: "cat ./focus.txt" },
+  // { kind: "out", text: "Bridging IT operations and software at a Boston MSP." },
   { kind: "cmd", text: "ls ./skills" },
   { kind: "out", text: "microsoft-365/  entra-id/  azure/  aws/  python/  react-native/" },
   { kind: "cmd", text: "./say_hi.sh" },
-  { kind: "ok",  text: "✓ open to IT automation & cloud ops roles" },
+  { kind: "ok",  text: "✓ open to IT & cloud ops roles" },
 ];
 
 export const SKILLS: Record<string, string[]> = {
@@ -64,15 +64,15 @@ export const PROJECTS: Project[] = [
       appStore: "https://apps.apple.com/us/app/smart-credit-ai/id6746369971",
     },
   },
-  {
-    name: "Mock AI Interview",
-    blurb:
-      "A web app to practice interviews with a virtual AI interviewer that asks, listens and gives feedback in real time.",
-    image: "/mockAiInterview.png",
-    tags: ["Web", "AI/ML"],
-    stack: ["Next.js", "OpenAI", "TypeScript"],
-    links: { live: "https://www.mockaiinterview.com/" },
-  },
+  // {
+  //   name: "Mock AI Interview",
+  //   blurb:
+  //     "A web app to practice interviews with a virtual AI interviewer that asks, listens and gives feedback in real time.",
+  //   image: "/mockAiInterview.png",
+  //   tags: ["Web", "AI/ML"],
+  //   stack: ["Next.js", "OpenAI", "TypeScript"],
+  //   links: { live: "https://www.mockaiinterview.com/" },
+  // },
   {
     name: "Personal Finance Tracker",
     blurb:
@@ -99,16 +99,7 @@ export const PROJECTS: Project[] = [
     tags: ["Web", "AI/ML"],
     stack: ["React", "Socket.io", "Node"],
     links: { github: "https://github.com/FrankyKyaw/TextGPT" },
-  },
-  {
-    name: "Rust REST API",
-    blurb:
-      "A RESTful API built with the Rocket framework in Rust — full CRUD and query operations with a focus on speed and safety.",
-    image: "/Rust_Rest_API.png",
-    tags: ["Backend"],
-    stack: ["Rust", "Rocket", "SQL"],
-    links: { github: "https://github.com/FrankyKyaw/Rust-Rest-API" },
-  },
+  }
 ];
 
 export const PROJECT_FILTERS = ["All", "Web", "Mobile", "AI/ML", "Backend", "Cloud"];
