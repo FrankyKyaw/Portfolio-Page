@@ -1,6 +1,5 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  darkMode: "class",
   content: [
     './pages/**/*.{js,ts,jsx,tsx,mdx}',
     './components/**/*.{js,ts,jsx,tsx,mdx}',
@@ -8,15 +7,26 @@ module.exports = {
   ],
   theme: {
     extend: {
-      animation: {
-        bounce: "bounce 0.5s alternate cubic-bezier(0.95, 0.05, 0.795, 0.035) infinite"
+      colors: {
+        accent:        'var(--accent)',
+        'accent-ink':  'var(--accent-ink)',
+        accent2:       'var(--accent2)',
+        ink:           'var(--ink)',
+        'ink-soft':    'var(--ink-soft)',
+        'ink-line':    'var(--ink-line)',
+        'on-ink':      'var(--on-ink)',
+        'on-ink-dim':  'var(--on-ink-dim)',
+        cream:         'var(--cream)',
+        'cream-soft':  'var(--cream-soft)',
+        'cream-line':  'var(--cream-line)',
+        'on-cream':    'var(--on-cream)',
+        'on-cream-dim':'var(--on-cream-dim)',
       },
-      keyframes: {
-        bounce: {
-          from: { transform: "translateY(10px)" },
-          to: { transform: "translateY(0)" },
-        }
-      }
+      fontFamily: {
+        display: 'var(--font-display, "Bricolage Grotesque", sans-serif)',
+        body:    'var(--font-body, "Hanken Grotesk", sans-serif)',
+        mono:    'var(--font-mono, "JetBrains Mono", monospace)',
+      },
     },
   },
   plugins: [],

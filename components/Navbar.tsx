@@ -1,95 +1,67 @@
 "use client";
-import { useState } from "react";
-import { RiMoonFill, RiSunLine } from "react-icons/ri";
-import { IoMdMenu, IoMdClose } from "react-icons/io";
-import { useTheme } from "next-themes";
+import { useState, useEffect } from "react";
 import { Link as ScrollLink } from "react-scroll/modules";
-import Link from "next/link";
+import { PROFILE } from "@/lib/data";
 
-interface NavItem {
-  label: string;
-  page: string;
-}
-
-const NAV_ITEMS: Array<NavItem> = [
-  { label: "About", page: "about" },
-  { label: "Experience", page: "experience" },
-  { label: "Projects", page: "projects" },
-  { label: "Contact", page: "contact" },
+const NAV_ITEMS = [
+  { label: "About",      to: "about" },
+  { label: "Experience", to: "experience" },
+  { label: "Projects",   to: "projects" },
+  { label: "Contact",    to: "contact" },
 ];
 
 export const Navbar = () => {
-  const { systemTheme, theme, setTheme } = useTheme();
-  const currentTheme = theme === "system" ? systemTheme : theme;
-  const [navbar, setNavBar] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const [open, setOpen] = useState(false);
+
+  useEffect(() => {
+    const handler = () => setScrolled(window.scrollY > 40);
+    window.addEventListener("scroll", handler, { passive: true });
+    handler();
+    return () => window.removeEventListener("scroll", handler);
+  }, []);
 
   return (
-    <header className="w-full mx-auto px-4 dark:bg-[#001C30] fixed top-0 z-50 sm:px-20 dark:border-b dark:border-stone-700 bg-slate-100 shadow">
-      <div className="justify-between md:items-center md:flex">
-        <div>
-          <div className="flex items-center py-4 justify-between">
-            <div className="md:block">
-              <h2 className="text-2xl font-bold">Franky Kyaw</h2>
-            </div>
-            <div className="md:hidden">
-              <button onClick={() => setNavBar(!navbar)}>
-                {navbar ? <IoMdClose size={30} /> : <IoMdMenu size={30} />}
-              </button>
-            </div>
-          </div>
-        </div>
-        <div>
-          <div
-            className={`flex-1 justify-self-center pb-3 mt-8 md:block md:pb-0 md:mt-0 ${
-              navbar ? "block" : "hidden"
-            }`}
+    <header className={`nav ${scrolled ? "nav-on" : ""}`}>
+      <div className="wrap nav-inner">
+        <a href="#home" className="nav-logo">
+          <span className="nav-mark">FK</span>
+          <span className="nav-name">Franky Kyaw</span>
+        </a>
+
+        <nav className={`nav-links ${open ? "open" : ""}`}>
+          {NAV_ITEMS.map(({ label, to }) => (
+            <ScrollLink
+              key={to}
+              to={to}
+              smooth
+              duration={600}
+              offset={-76}
+              onClick={() => setOpen(false)}
+            >
+              {label}
+            </ScrollLink>
+          ))}
+          <a
+            className="nav-resume"
+            href={PROFILE.resume}
+            target="_blank"
+            rel="noreferrer"
+            onClick={() => setOpen(false)}
           >
-            <div className="items-center justify-center space-y-8 md:flex md:space-x-6 md:space-y-0">
-              <Link
-                className="block lg:inline-block text-neutral-900 hover:text-neutral-500 dark:text-neutral-100 cursor-pointer"
-                href="/"
-              >
-                Home
-              </Link>
-              {NAV_ITEMS.map((item, idx) => (
-                <ScrollLink
-                  key={idx}
-                  to={item.page}
-                  className="block lg:inline-block text-neutral-900 hover:text-neutral-500 dark:text-neutral-100 cursor-pointer"
-                  activeClass="active"
-                  spy={true}
-                  smooth={true}
-                  offset={-100}
-                  duration={500}
-                  onClick={() => setNavBar(false)}
-                >
-                  {item.label}
-                </ScrollLink>
-              ))}
-              <Link
-                href="/resume"
-                className="block lg:inline-block text-neutral-900 hover:text-neutral-500 dark:text-neutral-100 cursor-pointer"
-              >
-                Resume
-              </Link>
-              {currentTheme === "dark" ? (
-                <button
-                  onClick={() => setTheme("light")}
-                  className="bg-slate-100 p-2 rounded-xl"
-                >
-                  <RiSunLine size={25} color="black" />
-                </button>
-              ) : (
-                <button
-                  onClick={() => setTheme("dark")}
-                  className="bg-slate-100 p-2 rounded-xl"
-                >
-                  <RiMoonFill size={25} />
-                </button>
-              )}
-            </div>
-          </div>
-        </div>
+            Résumé ↗
+          </a>
+        </nav>
+
+        <button
+          className="nav-burger"
+          onClick={() => setOpen((v) => !v)}
+          aria-label="Toggle menu"
+        >
+          <span />
+          <span />
+          <span />
+        </button>
       </div>
     </header>
   );

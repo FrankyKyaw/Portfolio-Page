@@ -1,105 +1,149 @@
-import Image from "next/image";
-import Link from "next/link";
-import { BsGithub } from "react-icons/bs";
-import { FaExternalLinkAlt, FaAppStore } from "react-icons/fa";
+"use client";
+import { useState, useMemo, useEffect } from "react";
+import { useReveal } from "@/hooks/useReveal";
+import { PROJECTS, PROJECT_FILTERS, type Project } from "@/lib/data";
 
-const projects = [
-  {
-    name: "Smart Credit AI",
-    description:
-      "A mobile app that helps users find the best credit card deals tailored to their spending habits. Built full-stack with React Native, Django, and AWS EC2. Live on the App Store.",
-    image: "/SmartCredit.png",
-    link: "https://smartcredit.tech/",
-    appStore: "https://apps.apple.com/us/app/smart-credit-ai/id6746369971",
-  },
-  {
-    name: "Mock AI Interview",
-    description:
-      "A mock AI interview web application that allows users to practice their interview skills with a virtual AI interviewer.",
-    image: "/mockAiInterview.png",
-    link: "https://www.mockaiinterview.com/",
-  },
-  {
-    name: "Personal Finance Tracker",
-    description:
-      "A personal finance tracker web application that allows users to link their bank accounts and track their income, expenses, and savings with dynamic charts.",
-    image: "/PersonalFinanceTracker.png",
-    github: "https://github.com/FrankyKyaw/personal-finance-dashboard",
-  },
-  {
-    name: "Deep Melody LSTM",
-    description:
-      "A deep learning model that generates choral music compositions using LSTM neural networks and TensorFlow, emulating the style and complexity of choral music.",
-    image: "/DeepMelodyLSTM.png",
-    github: "https://github.com/FrankyKyaw/DeepMelodyLSTM",
-  },
-  {
-    name: "LLM Powered Chat Application",
-    description:
-      "A real-time chat application built with React, Node.js, and Socket.io, integrated with LLM text suggestion for smarter conversations.",
-    image: "/TextGPT.png",
-    github: "https://github.com/FrankyKyaw/TextGPT",
-  },
-  {
-    name: "Rust REST API",
-    description:
-      "A RESTful API developed using the Rocket framework in Rust, providing full CRUD and query operations on the data.",
-    image: "/Rust_Rest_API.png",
-    github: "https://github.com/FrankyKyaw/Rust-Rest-API",
-  },
-];
+function ProjectCard({ p, onOpen }: { p: Project; onOpen: (p: Project) => void }) {
+  return (
+    <article
+      className={`pcard ${p.featured ? "pcard-featured" : ""}`}
+      onClick={() => onOpen(p)}
+    >
+      <div className="pcard-media">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src={p.image} alt={p.name} loading="lazy" />
+        {p.featured && <span className="pcard-flag">Featured · Live on App Store</span>}
+        <div className="pcard-hover">
+          <span className="pcard-open">View details →</span>
+        </div>
+      </div>
+      <div className="pcard-body">
+        <div className="pcard-head">
+          <h3>{p.name}</h3>
+        </div>
+        <p className="pcard-blurb">{p.blurb}</p>
+        <div className="pcard-tags">
+          {p.tags.map((tg) => (
+            <span className="chip chip-sm" key={tg}>{tg}</span>
+          ))}
+        </div>
+      </div>
+    </article>
+  );
+}
+
+function ProjectModal({ p, onClose }: { p: Project | null; onClose: () => void }) {
+  useEffect(() => {
+    if (!p) return;
+    document.body.style.overflow = "hidden";
+    const esc = (e: KeyboardEvent) => { if (e.key === "Escape") onClose(); };
+    window.addEventListener("keydown", esc);
+    return () => {
+      document.body.style.overflow = "";
+      window.removeEventListener("keydown", esc);
+    };
+  }, [p, onClose]);
+
+  if (!p) return null;
+
+  return (
+    <div className="modal-scrim" onClick={onClose}>
+      <div className="modal" onClick={(e) => e.stopPropagation()}>
+        <button className="modal-x" onClick={onClose} aria-label="Close">✕</button>
+        <div className="modal-media">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src={p.image} alt={p.name} />
+        </div>
+        <div className="modal-body">
+          <div className="pcard-tags">
+            {p.tags.map((tg) => (
+              <span className="chip chip-sm" key={tg}>{tg}</span>
+            ))}
+          </div>
+          <h3 className="modal-title">{p.name}</h3>
+          <p className="modal-blurb">{p.blurb}</p>
+          <div className="modal-stack">
+            {p.stack.map((s) => (
+              <span className="stack-pill" key={s}>{s}</span>
+            ))}
+          </div>
+          <div className="modal-links">
+            {p.links.live && (
+              <a className="btn btn-primary btn-sm" href={p.links.live} target="_blank" rel="noreferrer">
+                Visit site ↗
+              </a>
+            )}
+            {p.links.appStore && (
+              <a className="btn btn-dark btn-sm" href={p.links.appStore} target="_blank" rel="noreferrer">
+                App Store ↗
+              </a>
+            )}
+            {p.links.github && (
+              <a className="btn btn-ghost-dark btn-sm" href={p.links.github} target="_blank" rel="noreferrer">
+                GitHub ↗
+              </a>
+            )}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
 
 export const ProjectsSection = () => {
+  const [filter, setFilter] = useState("All");
+  const [open, setOpen] = useState<Project | null>(null);
+  const ref = useReveal();
+
+  const list = useMemo(
+    () => PROJECTS.filter((p) => filter === "All" || p.tags.includes(filter)),
+    [filter]
+  );
+
   return (
-    <section id="projects">
-      <h1 className="text-center font-bold text-4xl mb-10">Projects</h1>
-      <div className="flex flex-col space-y-28">
-        {projects.map((project, idx) => (
-          <div key={idx}>
-            <div className="flex flex-col md:flex-row md:space-x-12">
-              <div className={`mt-12 md:w-1/2 ${idx % 2 === 1 ? "md:order-2" : ""}`}>
-                <Image
-                  src={project.image}
-                  alt={project.name}
-                  width={1000}
-                  height={1000}
-                  className="rounded-xl shadow-xl hover:opacity-70 transition-opacity"
-                />
-              </div>
-              <div className={`mt-12 md:w-1/2 ${idx % 2 === 1 ? "md:order-1" : ""}`}>
-                <h2 className="text-4xl font-bold mb-6">{project.name}</h2>
-                <p className="text-xl">{project.description}</p>
-                <div className="flex space-x-4 mt-6">
-                  {project.github && (
-                    <Link href={project.github} target="_blank">
-                      <BsGithub
-                        size={25}
-                        className="hover:-translate-y-0.5 transition-transform cursor-pointer"
-                      />
-                    </Link>
-                  )}
-                  {project.link && (
-                    <Link href={project.link} target="_blank">
-                      <FaExternalLinkAlt
-                        size={25}
-                        className="hover:-translate-y-0.5 transition-transform cursor-pointer"
-                      />
-                    </Link>
-                  )}
-                  {project.appStore && (
-                    <Link href={project.appStore} target="_blank">
-                      <FaAppStore
-                        size={25}
-                        className="hover:-translate-y-0.5 transition-transform cursor-pointer"
-                      />
-                    </Link>
-                  )}
-                </div>
-              </div>
+    <section id="projects" className="section band-cream reveal-root" ref={ref}>
+      <div className="wrap">
+        <div className="sec-head reveal">
+          <span className="sec-kicker">/ selected work</span>
+          <h2 className="sec-title">Things I&apos;ve built</h2>
+          <p className="sec-lead">
+            From a credit-card app live on the App Store to neural nets that write choral music.
+            Filter by what you care about.
+          </p>
+        </div>
+
+        <div className="filterbar reveal" data-d="1">
+          {PROJECT_FILTERS.map((f) => {
+            const count =
+              f === "All"
+                ? PROJECTS.length
+                : PROJECTS.filter((p) => p.tags.includes(f)).length;
+            return (
+              <button
+                key={f}
+                className={`fbtn ${filter === f ? "fbtn-on" : ""}`}
+                onClick={() => setFilter(f)}
+              >
+                {f} <span className="fbtn-count">{count}</span>
+              </button>
+            );
+          })}
+        </div>
+
+        <div className="pgrid" key={filter}>
+          {list.map((p, i) => (
+            <div
+              className={`pgrid-item ${p.featured ? "featured" : ""}`}
+              style={{ ["--i" as string]: i }}
+              key={p.name}
+            >
+              <ProjectCard p={p} onOpen={setOpen} />
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
+
+      <ProjectModal p={open} onClose={() => setOpen(null)} />
     </section>
   );
 };
