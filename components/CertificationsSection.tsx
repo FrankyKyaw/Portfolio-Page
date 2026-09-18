@@ -19,8 +19,8 @@ const certifications = [
     name: "AWS Certified Cloud Practitioner",
     code: "AWS CCP",
     issuer: "Amazon Web Services",
-    date: "In Progress",
-    inProgress: true,
+    date: "July 2026",
+    inProgress: false,
     badgeClass: "bg-orange-50 border-orange-200 text-orange-700",
   },
 ];
