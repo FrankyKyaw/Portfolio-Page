@@ -10,15 +10,16 @@ export const AboutSection = () => {
       <div className="wrap about-grid">
         <div className="about-left reveal">
           <span className="sec-kicker">/ about</span>
-          <h2 className="sec-title">Two disciplines,<br />one engineer.</h2>
+          <h2 className="sec-title">IT systems that<br />work better.</h2>
           <p className="about-p">
             I&apos;m a Computer Science grad from Bennington College, now a Help Desk Engineer at{" "}
             <strong>Bay State IT</strong>, a fast-paced Boston MSP. I support clients across Microsoft 365,
             Entra ID, networking and endpoint management.
           </p>
           <p className="about-p">
-           I love building software and automating workflows. Currently, I&apos;m chasing my AWS Cloud
-            Practitioner cert.
+            I focus on reliable access, secure endpoints and smoother operations. I earned the AWS
+            Certified Cloud Practitioner credential in July 2026 and use PowerShell, Bash and Python
+            to automate repeatable IT work.
           </p>
           {/* <p className="about-p about-aside">
             Aside from work, I love playing the piano and reading books.
