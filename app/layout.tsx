@@ -23,7 +23,7 @@ const jetbrains = JetBrains_Mono({
 
 export const metadata: Metadata = {
   title: "Franky Kyaw",
-  description: "IT & Cloud Engineer who ships software.",
+  description: "Boston-based IT Engineer focused on Microsoft 365, identity, endpoints, and cloud operations.",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
