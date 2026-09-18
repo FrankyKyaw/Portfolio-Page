@@ -8,7 +8,7 @@ export const PROFILE = {
   email: "franky27october@gmail.com",
   github: "https://github.com/FrankyKyaw",
   linkedin: "https://www.linkedin.com/in/frankykyaw/",
-  resume: "/Franky_Kyaw_resume.pdf",
+  resume: "/resume-download",
 };
 
 export const STATS = [
