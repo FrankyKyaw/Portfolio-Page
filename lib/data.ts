@@ -1,30 +1,30 @@
 export const PROFILE = {
   name: "Franky Kyaw",
   role: "IT & Cloud Engineer",
-  tag: "who ships software",
+  tag: "IT engineering",
   location: "Boston, MA",
   blurb:
-    "Help Desk Engineer at a fast-paced Boston MSP with a passion for full-stack and cloud development.",
-  email: "myothetkyaw10.2000@gmail.com",
+    "Help Desk Engineer at a fast-paced Boston MSP focused on Microsoft 365, identity, and endpoint management.",
+  email: "franky27october@gmail.com",
   github: "https://github.com/FrankyKyaw",
   linkedin: "https://www.linkedin.com/in/frankykyaw/",
-  resume: "/Franky_Kyaw_resume_1.pdf",
+  resume: "/Franky_Kyaw_resume.pdf",
 };
 
 export const STATS = [
   { value: "2+",  label: "yrs in IT & infra" },
   // { value: "1",   label: "app live on the App Store" },
   // { value: "10+", label: "projects shipped" },
-  { value: "AWS", label: "CP — in progress" },
+  { value: "AWS", label: "CP — earned Jul 2026" },
 ];
 
 export const TERMINAL: { kind: "cmd" | "out" | "ok"; text: string }[] = [
   { kind: "cmd", text: "whoami" },
-  { kind: "out", text: "franky_kyaw — IT/Cloud engineer + developer" },
+  { kind: "out", text: "franky_kyaw — IT & cloud engineer" },
   // { kind: "cmd", text: "cat ./focus.txt" },
   // { kind: "out", text: "Bridging IT operations and software at a Boston MSP." },
   { kind: "cmd", text: "ls ./skills" },
-  { kind: "out", text: "microsoft-365/  entra-id/  azure/  aws/  python/  react-native/" },
+  { kind: "out", text: "microsoft-365/  entra-id/  intune/  okta/  aws/  powershell/" },
   { kind: "cmd", text: "./say_hi.sh" },
   { kind: "ok",  text: "✓ open to IT & cloud ops roles" },
 ];
@@ -32,9 +32,9 @@ export const TERMINAL: { kind: "cmd" | "out" | "ok"; text: string }[] = [
 export const SKILLS: Record<string, string[]> = {
   "IT & Cloud": [
     "Microsoft 365", "Entra ID", "Azure", "AWS", "Active Directory",
-    "Datto RMM", "Autotask PSA", "VMware", "Intune", "Okta", "PowerShell",
+    "Intune", "Addigy", "Okta OIG", "Datto RMM", "Autotask PSA", "Freshservice", "PowerShell",
   ],
-  "Development": [
+  "Automation & Development": [
     "Python", "TypeScript", "JavaScript", "React.js", "React Native",
     "Next.js", "Django", "SQL", "Docker", "Git", "Power BI",
   ],
@@ -112,10 +112,11 @@ export const EXPERIENCE = [
     period: "Aug 2025 — Present",
     current: true,
     bullets: [
-      "Tier 1/2 support across a diverse portfolio of MSP clients in a fast-paced environment.",
-      "Administer Microsoft 365 tenants — users, licensing & security in Microsoft Entra ID.",
-      "Resolve hardware, software & network issues while holding high SLA standards.",
-      "Track incident lifecycles end-to-end with Datto RMM and Autotask PSA.",
+      "Administer identity and access across Okta and Microsoft Entra ID, including application access, onboarding, offboarding, licensing, and security policies in multi-client Microsoft 365 environments.",
+      "Support Okta Identity Governance workflows and resolve SSO and SAML provisioning issues.",
+      "Resolve escalated hardware, software, and network issues while maintaining high SLA standards.",
+      "Automate QA for new-hire laptop setups with Bash and PowerShell scripts, standardizing device-readiness checks.",
+      "Document incident lifecycles in Datto RMM, Autotask PSA, and Freshservice.",
     ],
   },
   {
